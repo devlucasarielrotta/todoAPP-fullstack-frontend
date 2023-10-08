@@ -9,7 +9,7 @@ export default function TaskList() {
   const [foundTasksCount, setFoundTasksCount] = useState(0); 
 
   const loadTasks = async () => {
-    const response = await fetch("http://localhost:8000/tasks");
+    const response = await fetch("postgres://admin:i2Swc52iixtdULxWarhyM5o6OXgaQuCx@dpg-ckhe864ldqrs739n5dsg-a/tasksdb_wa93/tasks");
     const {  Tasks } = await response.json();
     setTasks(Tasks);
   };
@@ -20,7 +20,7 @@ export default function TaskList() {
 
   const handleDelete = async (id) => {
     try {
-      await fetch(`http://localhost:8000/tasks/${id}`, {
+      await fetch(`postgres://admin:i2Swc52iixtdULxWarhyM5o6OXgaQuCx@dpg-ckhe864ldqrs739n5dsg-a/tasksdb_wa93/tasks/${id}`, {
         method: 'DELETE',
       });
 

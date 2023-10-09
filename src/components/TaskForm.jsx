@@ -18,13 +18,13 @@ export default function TaskForm() {
     
   
     if(editing){
-      await fetch(`postgres://admin:i2Swc52iixtdULxWarhyM5o6OXgaQuCx@dpg-ckhe864ldqrs739n5dsg-a/tasksdb_wa93/tasks/${params.id}`,{
+      await fetch(`https://todo-app-back-ae7h.onrender.com/tasks/${params.id}`,{
       method:'PUT',
         headers:{'Content-Type': 'application/json'},
         body: JSON.stringify(task),
     });
     } else {
-        await fetch('postgres://admin:i2Swc52iixtdULxWarhyM5o6OXgaQuCx@dpg-ckhe864ldqrs739n5dsg-a/tasksdb_wa93/tasks',{
+        await fetch('https://todo-app-back-ae7h.onrender.com/tasks',{
           method:'POST',
           headers:{'Content-Type': 'application/json'},
           body: JSON.stringify(task),
@@ -43,7 +43,7 @@ export default function TaskForm() {
   }
 
   const loadTask = async(id) => {
-    const res = await fetch(`postgres://admin:i2Swc52iixtdULxWarhyM5o6OXgaQuCx@dpg-ckhe864ldqrs739n5dsg-a/tasksdb_wa93/tasks/${Number(id)}`)
+    const res = await fetch(`https://todo-app-back-ae7h.onrender.com/tasks/${Number(id)}`)
     const {Tasks} = await res.json()
    
     const {title,description} = Tasks[0];
